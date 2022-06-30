@@ -1,10 +1,8 @@
 package hello.core.beanfind;
 
-import hello.core.AppConfig;
 import hello.core.discount.DiscountPolicy;
 import hello.core.discount.FixDiscountPolicy;
 import hello.core.discount.RateDiscountPolicy;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.NoUniqueBeanDefinitionException;
@@ -21,7 +19,7 @@ public class ApplicationContextExtendsFindTest {
     AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(TestConfig.class);
 
     @Test
-    @DisplayName("부모 타입으로 조회, 자식으 둘 이상 있으면 중복 오류 발생")
+    @DisplayName("부모 타입으로 조회, 자식이 둘 이상 있으면 중복 오류 발생")
     void findBeanByParentTypeDuplicate() {
 //        DiscountPolicy bean = ac.getBean(DiscountPolicy.class);
         assertThrows(NoUniqueBeanDefinitionException.class,
@@ -58,6 +56,7 @@ public class ApplicationContextExtendsFindTest {
             System.out.println("s = " + s + " value = " + beansOfType.get(s));
         }
     }
+
     @Configuration
     static class TestConfig {
 
@@ -72,3 +71,4 @@ public class ApplicationContextExtendsFindTest {
         }
     }
 }
+
