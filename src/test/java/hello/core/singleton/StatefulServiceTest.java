@@ -25,8 +25,6 @@ class StatefulServiceTest {
 
         // ThreadA : A 사용자가 주문 금액 조회
         System.out.println("price = " + userA);
-
-        Assertions.assertThat(statefulService1).isEqualTo(20000);
     }
 
     static class TestConfig {
